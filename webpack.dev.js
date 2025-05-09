@@ -1,3 +1,7 @@
 module.exports = {
-  mode: "development"
+  mode: "development",
+  devtool: "eval-source-map",
+  devServer: {
+    watchFiles: ["./src/template.html"],
+  }
 }
