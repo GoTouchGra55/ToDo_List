@@ -1,0 +1,155 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  overflow: hidden;
+}
+
+:root {
+  --delete: rgb(175, 0, 0);
+  --confirm: rgb(30, 163, 30);
+  --logo: 40px;
+}
+
+dialog {
+  padding: 20px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  width: max(250px, 14.5rem);
+  text-align: center;
+  margin: 50vh auto;
+  transform: translateY(-50%);
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5); /* darkens the background */
+}
+
+body {
+  display: grid;
+  grid-template-columns: 1fr 3.4fr;
+  grid-template-areas: "sidebar main";
+  background-image: url("./images/background.jpg");
+  background-color: rgba(0, 0, 0, 0.15);
+  background-blend-mode: darken;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100vh;
+  z-index: -2;
+}
+
+.sidebar {
+  background-color: rgba(187, 185, 185, 0.274);
+  height: 100vh;
+  backdrop-filter: blur(8px);
+  text-align: center;
+  grid-area: sidebar;
+}
+
+header {
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  margin-top: 1.25rem;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+  text-decoration-color: transparent;
+  transition: all 0.2s linear;
+}
+
+header::before {
+  content: url("./images/check-all.svg");
+  height: var(--logo);
+  width: var(--logo);
+  margin-right: 5px;
+}
+
+header:hover {
+  background-image: linear-gradient(90deg, rgb(89, 0, 116), rgb(24, 79, 197));
+  color: transparent;
+  background-clip: text;
+  text-decoration-color: black;
+}
+
+.content {
+  grid-area: main;
+}
+
+.type, .projects {
+  width: 100%;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.all, .today, .default, #addNew {
+  padding: 1rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: all 0.2s ease;
+}
+
+.all:hover, .today:hover, .default:hover {
+  background-color: rgba(80, 79, 79, 0.24);
+  font-size: larger;
+  box-shadow: 5px 5px 3px rgb(114, 114, 114)
+}
+
+hr {
+  border: none;
+  height: 1px;
+  width: 80%;
+  margin: 1rem auto;
+  background-color: rgb(78, 76, 76);
+}
+
+#addNew {
+  background-color: var(--confirm);
+  border-radius: 1rem;
+  border: 1px solid black;
+}
+
+#addNew:hover {
+  transform: scale(110%);
+  box-shadow: 5px 5px 3px rgb(114, 114, 114)
+}
+
+#addNew:active {
+  background-color: green;
+}
+
+.confirm {
+  background-color: var(--confirm);
+}
+
+.cancel {
+  background-color: var(--delete);
+}
+
+.confirm, .cancel {
+  color: white;
+  padding: 0.5rem;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 4px;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.pName {
+  width: 100%;
+  margin-bottom: 0.5rem;
+  height: 27px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+}
